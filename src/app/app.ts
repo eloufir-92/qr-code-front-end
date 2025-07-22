@@ -1,12 +1,16 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  template: `
+    <div class="min-vh-100 bg-light">
+      <router-outlet></router-outlet>
+    </div>
+  `
 })
-export class App {
-  protected readonly title = signal('qr-code-An');
+export class AppComponent {
+  title = 'QR Menu';
 }
