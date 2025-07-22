@@ -11,9 +11,11 @@ export interface MenuItem {
   name: string;
   description?: string;
   price: number;
+  currency?: string;
   category?: string;
   imageUrl?: string;
-  available: boolean;
+  allergies?: string;
+  available?: boolean;
   createdAt?: string;
 }
 
@@ -35,8 +37,10 @@ export interface MenuItemDTO {
   name: string;
   description?: string;
   price: number;
+  currency?: string;
   category?: string;
   imageUrl?: string;
+  allergies?: string;
 }
 
 export interface QrCodeRequestDTO {

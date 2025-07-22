@@ -71,6 +71,28 @@ export class DashboardComponent implements OnInit {
   restaurants: Restaurant[] = [];
   loading = true;
 
+  // Données statiques
+  staticRestaurants: Restaurant[] = [
+    {
+      id: 1,
+      name: 'Le Gourmet Français',
+      description: 'Restaurant français authentique avec une cuisine moderne',
+      logoUrl: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=300&h=200&fit=crop&crop=center'
+    },
+    {
+      id: 2,
+      name: 'Pizza Roma',
+      description: 'Pizzeria italienne traditionnelle avec des ingrédients frais',
+      logoUrl: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=300&h=200&fit=crop&crop=center'
+    },
+    {
+      id: 3,
+      name: 'Sushi Zen',
+      description: 'Restaurant japonais spécialisé en sushi et cuisine nippone',
+      logoUrl: 'https://images.unsplash.com/photo-1553621042-f6e147245754?w=300&h=200&fit=crop&crop=center'
+    }
+  ];
+
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
@@ -78,6 +100,14 @@ export class DashboardComponent implements OnInit {
   }
 
   loadRestaurants(): void {
+    // Simulation d'un chargement avec données statiques
+    setTimeout(() => {
+      this.restaurants = [...this.staticRestaurants];
+      this.loading = false;
+    }, 500);
+
+    // Version commentée pour le backend futur
+    /*
     this.apiService.getAllRestaurants().subscribe({
       next: (restaurants) => {
         this.restaurants = restaurants;
@@ -88,5 +118,6 @@ export class DashboardComponent implements OnInit {
         this.loading = false;
       }
     });
+    */
   }
 }
